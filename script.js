@@ -435,6 +435,7 @@ $('#downloadBtn').on('click', function() {
 
 
 function getTableDate(date) {
+	debugger;
     document.getElementById("date").value = date; 
 }
 
