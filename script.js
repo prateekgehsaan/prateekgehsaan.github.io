@@ -434,8 +434,8 @@ $('#downloadBtn').on('click', function() {
 });
 
 
-function getTableDate(Date)
-{
-	$("#date").val(Date);
+function getTableDate(date) {
+    document.getElementById("date").value = date; 
 }
+
  
