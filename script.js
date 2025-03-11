@@ -432,3 +432,15 @@ XLSX.writeFile(wb, 'ExpenseManager.xlsx');
 $('#downloadBtn').on('click', function() {
     ExportToExcel();
 });
+
+
+function getTableDate(Date)
+{
+	$("#date").val(Date);
+}
+
+document.getElementById('expenseTable').addEventListener('click', function (e) {
+    if (e.target.tagName === 'TD' && e.target.dataset.date) {
+        getTableDate(e.target.dataset.date);
+    }
+});
