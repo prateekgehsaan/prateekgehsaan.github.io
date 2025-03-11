@@ -122,7 +122,7 @@ dates.forEach(date => {
         tbody += `<td>${amounts || ''}</td>`;
     });
     tbody += `<td>${dailyTotal.toFixed(2)}</td>`;
-    tbody += `<td><button class="btn btn-danger btn-sm delete-btn" data-date="${date}">Delete</button></td>`;
+    tbody += `<td><button class="btn btn-danger btn-sm delete-btn" data-date="${date}">Delete</button> <button class="btn btn-danger btn-sm delete-btn pl-1" data-date="${date}" onclick="getTableDate('${date}')">AddMore</button></td>`;
     tbody += `</tr>`;
     grandTotal += dailyTotal;
 });
@@ -433,9 +433,8 @@ $('#downloadBtn').on('click', function() {
     ExportToExcel();
 });
 
- $(document).on("click", "#expenseTable td[data-date]", function() {
-    debugger;
-    let selectedDate = $(this).data("date");
-    $("#date").val(selectedDate);
+  function getTableDate(Date) {
+    debugger; 
+    $("#date").val(Date);
 });
  
