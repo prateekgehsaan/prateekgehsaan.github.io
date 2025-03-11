@@ -110,7 +110,7 @@ let grandTotal = 0;
 dates.forEach(date => {
     const dateExpenses = expenses.filter(exp => exp.date === date);
     let dailyTotal = 0;
-    tbody += `<tr data-date="${date}"><td>${date}</td>`; // Add data-date attribute for easier filtering
+    tbody += `<tr data-date="${date}" onclick="getTableDate('${date}')" ><td>${date}</td>`; // Add data-date attribute for easier filtering
     categories.forEach(cat => {
         const catExpenses = dateExpenses.filter(exp => exp.category === cat);
         const amounts = catExpenses.map(exp => 
@@ -438,9 +438,4 @@ function getTableDate(Date)
 {
 	$("#date").val(Date);
 }
-
-document.getElementById('expenseTable').addEventListener('click', function (e) {
-    if (e.target.tagName === 'TD' && e.target.dataset.date) {
-        getTableDate(e.target.dataset.date);
-    }
-});
+ 
