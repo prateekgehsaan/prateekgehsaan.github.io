@@ -122,7 +122,7 @@ dates.forEach(date => {
         tbody += `<td>${amounts || ''}</td>`;
     });
     tbody += `<td>${dailyTotal.toFixed(2)}</td>`;
-    tbody += `<td><button class="btn btn-danger btn-sm delete-btn" data-date="${date}">Delete</button> <button class="btn btn-success btn-sm pl-1" data-date="${date}" onclick="getTableDate('${date}')">AddMore</button></td>`;
+    tbody += `<td><button class="btn btn-danger btn-sm delete-btn" data-date="${date}">Delete</button></td>`;
     tbody += `</tr>`;
     grandTotal += dailyTotal;
 });
