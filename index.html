@@ -84,7 +84,7 @@
 
         <div class="col-12 text-center">
             <button type="submit" class="btn btn-primary">Add Expense</button>
-	    <button type="button" id="downloadBtn" class="btn btn-success ms-2">Download</button>
+	    <button type="button" id="downloadBtn" class="btn btn-success ms-2">Export To Excel</button>
         </div> 
     </form>
 </section>
@@ -129,15 +129,47 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h6>Welcome to the Expense Manager</h6>
-                <p>This application helps you manage your expenses efficiently.</p>
-                <h6>How to Use:</h6>
+                <div class="alert alert-warning" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <strong>Important:</strong> Data entered here is <strong>not permanent</strong> and will be deleted if you clear your browser cache or data. Use "Export To Excel" to save your records!
+                </div>
+
+                <h6>Welcome!</h6>
+                <p>This tool helps you track expenses easily. Here’s how it works:</p>
+
+                <h6>Key Features</h6>
                 <ul>
-                    <li>Add categories using the "Add Expense Category" section.</li>
-                    <li>Enter expenses using the "Enter Expense" form.</li>
-                    <li>View and manage your expenses in the table below.</li>
+                    <li><strong>Graph Icon (📊)</strong>: Next to "Expense Manager". Click for expense charts.</li>
+                    <li><strong>Guide Icon (ℹ️)</strong>: Opens this guide.</li>
                 </ul>
-                <p>This is placeholder text. Replace it with your detailed instructions.</p>
+
+                <h6>Add Expense Category</h6>
+                <p><strong>Button</strong>: "Add Category" adds a new category (e.g., "Food") to the dropdown. These become table columns.</p>
+
+                <h6>Enter Expense</h6>
+                <ul>
+                    <li><strong>Date</strong>: Pick a date or click a table date to auto-fill.</li>
+                    <li><strong>Category</strong>: Choose from your dropdown.</li>
+                    <li><strong>Amount (₹)</strong>: Enter the expense amount.</li>
+                    <li><strong>Remark</strong>: Add a note (optional, clickable later).</li>
+                    <li><strong>Button</strong>: "Add Expense" saves it.</li>
+                </ul>
+                <p><em>Tip</em>: Add multiple entries per date/category. Remarks help!</p>
+
+                <h6>Expense Table</h6>
+                <ul>
+                    <li>Shows Date, Categories, Amount, Remark.</li>
+                    <li><strong>Clickable Amount</strong>: See the remark.</li>
+                    <li><strong>Clickable Date</strong>: Auto-fills the form.</li>
+                    <li><strong>Delete</strong>: Each row has a delete button; "Delete All" clears everything.</li>
+                </ul>
+                <p><em>Tip</em>: Click dates for quick entry.</p>
+
+                <h6>Export To Excel</h6>
+                <p><strong>Button</strong>: "Export To Excel" saves your table as an Excel file (.xlsx). Do this often—data isn’t permanent!</p>
+
+                <h6>Quick Start</h6>
+                <p>Add categories, enter expenses, click amounts for remarks or dates for quick entry, and Export To Excel to save your work. Done!</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -145,6 +177,33 @@
         </div>
     </div>
 </div>
+
+<footer class="bg-dark text-light py-3 mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Copyright -->
+            <div class="col-md-4 text-center text-md-start">
+                <p class="mb-0">&copy; 2025 Expense Manager</p>
+            </div>
+            <!-- Creator -->
+            <div class="col-md-4 text-center">
+                <p class="mb-0">Created by Prateek Gupta</p>
+            </div>
+            <!-- Social Media Links -->
+            <div class="col-md-4 text-center text-md-end">
+                <a href="https://www.instagram.com/khwahish_writer" target="_blank" class="text-light me-3 social-icon" title="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100024303464284" target="_blank" class="text-light me-3 social-icon" title="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                 <!-- <a href="https://www.twitter.com/yourusername" target="_blank" class="text-light social-icon" title="Twitter">
+                    <i class="bi bi-twitter"></i>
+                </a> -->
+            </div>
+        </div>
+    </div>
+</footer>
 	
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
