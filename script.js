@@ -436,4 +436,10 @@ $('#downloadBtn').on('click', function() {
 function getTableDate(date) {
     document.getElementById("date").value = date;
 }
- 
+
+//For User Guide
+// Initialize tooltip for guide icon
+var guideIcon = document.getElementById('guideIcon');
+if (guideIcon) {
+    new bootstrap.Tooltip(guideIcon);
+}
