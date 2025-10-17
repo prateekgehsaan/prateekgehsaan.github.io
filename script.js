@@ -8,3 +8,10 @@ darkModeBtn.addEventListener('click', () => {
         darkModeBtn.innerHTML = '<i class="fas fa-moon"></i>';
     }
 });
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('open');
+});
