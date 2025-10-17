@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Manager</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <style>
+        .amount {
+            cursor: pointer;
+            text-decoration: underline;
+            color: blue;
+        }
+        /* Ensure table takes full width */
+        #expenseTable {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<h1 class="text-center mb-4">
+    Expense Manager 
+    <span id="graphIcon" class="ms-2" style="cursor: pointer;">
+        <i class="bi bi-bar-chart"></i>
+    </span> 
+    <button id="guideIcon" class="btn p-0 ms-2" data-bs-toggle="modal" data-bs-target="#userGuideModal" aria-label="User Guide" title="User Guide">
+        <i class="bi bi-info-circle"></i>
+    </button>
+</h1>
+<!-- Add this graph container after the h1, before your form sections -->
+<div id="graphContainer" style="display: none;">
+    <div class="row">
+        <div class="col-12 text-center mb-3">
+            <button id="backToFormBtn" class="btn btn-primary">Back to Form</button>
+        </div>
+        <div class="col-md-6">
+            <canvas id="barChart" height="200"></canvas>
+        </div>
+        <div class="col-md-6">
+            <canvas id="doughnutChart" height="200"></canvas>
+        </div>
+    </div>
+</div>
+    <div class="container my-4" id = "formContainer">
+        <!-- Category Input Section -->
+        <section class="mb-4">
+            <h2>Add Expense Category</h2>
+            <div class="input-group mb-3">
+                <input type="text" id="categoryInput" class="form-control" placeholder="Enter category name">
+                <button id="addCategoryBtn" class="btn btn-primary">Add Category</button>
+            </div>
+        </section>
+
+        <!-- Expense Form -->
+<section class="mb-4">
+    <h2>Enter Expense</h2>
+    <form id="expenseForm" class="row g-3">
+        <div class="col-md-3">
+            <label for="date" class="form-label">Date:</label>
+            <input type="date" id="date" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <label for="category" class="form-label">Category:</label>
+            <select id="category" class="form-select" required>
+                <!-- Populated dynamically -->
+            </select>
+        </div>
+        
+        <div class="col-md-3">
+            <label for="amount" class="form-label">Amount (₹):</label>
+            <input type="number" id="amount" class="form-control" step="0.01" min="0" required>
+        </div>
+
+	<div class="col-md-3">
+            <label for="remark" class="form-label">Remark:</label>
+            <input type="text" id="remark" class="form-control" placeholder="Add a remark">
+        </div>
+
+        <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Add Expense</button>
+	    <button type="button" id="downloadBtn" class="btn btn-success ms-2">Export To Excel</button>
+        </div> 
+    </form>
+</section>
+
+        <!-- Expense Table -->
+        <section>
+            <h2>Expense Table</h2>
+            <div class="table-responsive">
+                <table id="expenseTable" class="table table-striped table-bordered">
+                    <thead></thead>
+                    <tbody></tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </section>
+ </div>
+
+    <!-- Modal for Remarks -->
+<div class="modal fade" id="remarkModal" tabindex="-1" aria-labelledby="remarkModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="remarkModalLabel">Remark</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <textarea id="remarkText" class="form-control" rows="3" readonly></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+	
+   <!-- Modal for Remarks -->
+<div class="modal fade" id="userGuideModal" tabindex="-1" aria-labelledby="userGuideModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userGuideModalLabel">User Guide</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                    <strong>Important:</strong> Data entered here is <strong>not permanent</strong> and will be deleted if you clear your browser cache or data. Use "Export To Excel" to save your records!
+                </div>
+
+                <h6>Welcome!</h6>
+                <p>This tool helps you track expenses easily. Here’s how it works:</p>
+
+                <h6>Key Features</h6>
+                <ul>
+                    <li><strong>Graph Icon (📊)</strong>: Next to "Expense Manager". Click for expense charts.</li>
+                    <li><strong>Guide Icon (ℹ️)</strong>: Opens this guide.</li>
+                </ul>
+
+                <h6>Add Expense Category</h6>
+                <p><strong>Button</strong>: "Add Category" adds a new category (e.g., "Food") to the dropdown. These become table columns.</p>
+
+                <h6>Enter Expense</h6>
+                <ul>
+                    <li><strong>Date</strong>: Pick a date or click a table date to auto-fill.</li>
+                    <li><strong>Category</strong>: Choose from your dropdown.</li>
+                    <li><strong>Amount (₹)</strong>: Enter the expense amount.</li>
+                    <li><strong>Remark</strong>: Add a note (optional, clickable later).</li>
+                    <li><strong>Button</strong>: "Add Expense" saves it.</li>
+                </ul>
+                <p><em>Tip</em>: Add multiple entries per date/category. Remarks help!</p>
+
+                <h6>Expense Table</h6>
+                <ul>
+                    <li>Shows Date, Categories, Amount, Remark.</li>
+                    <li><strong>Clickable Amount</strong>: See the remark.</li>
+                    <li><strong>Clickable Date</strong>: Auto-fills the form.</li>
+                    <li><strong>Delete</strong>: Each row has a delete button; "Delete All" clears everything.</li>
+                </ul>
+                <p><em>Tip</em>: Click dates for quick entry.</p>
+
+                <h6>Export To Excel</h6>
+                <p><strong>Button</strong>: "Export To Excel" saves your table as an Excel file (.xlsx). Do this often—data isn’t permanent!</p>
+
+                <h6>Quick Start</h6>
+                <p>Add categories, enter expenses, click amounts for remarks or dates for quick entry, and Export To Excel to save your work. Done!</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-light py-3 mt-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Copyright -->
+            <div class="col-md-4 text-center text-md-start">
+                <p class="mb-0">&copy; 2025 Expense Manager</p>
+            </div>
+            <!-- Creator -->
+            <div class="col-md-4 text-center">
+                <p class="mb-0">Created by Prateek Gupta</p>
+            </div>
+            <!-- Social Media Links -->
+            <div class="col-md-4 text-center text-md-end">
+                <a href="https://www.instagram.com/khwahish_writer" target="_blank" class="text-light me-3 social-icon" title="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100024303464284" target="_blank" class="text-light me-3 social-icon" title="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                 <!-- <a href="https://www.twitter.com/yourusername" target="_blank" class="text-light social-icon" title="Twitter">
+                    <i class="bi bi-twitter"></i>
+                </a> -->
+            </div>
+        </div>
+    </div>
+</footer>
+	
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
