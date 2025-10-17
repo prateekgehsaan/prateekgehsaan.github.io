@@ -1,18 +1,29 @@
-const darkModeBtn = document.getElementById('darkModeBtn');
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.querySelector('nav');
+  const darkToggle = document.getElementById('dark-mode-toggle');
+  const body = document.body;
+  const darkIconClass = 'fa-moon';
+  const lightIconClass = 'fa-sun';
 
-// Dark mode toggle
-darkModeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    if (document.body.classList.contains('dark-mode')) {
-        darkModeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+  // Hamburger menu toggle
+  hamburger.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Dark mode toggle
+  darkToggle.addEventListener('click', () => {
+    const isDark = body.classList.toggle('dark-mode');
+
+    // Swap icon
+    const icon = darkToggle.querySelector('i');
+    if (isDark) {
+      icon.classList.remove(darkIconClass);
+      icon.classList.add(lightIconClass);
     } else {
-        darkModeBtn.innerHTML = '<i class="fas fa-moon"></i>';
+      icon.classList.remove(lightIconClass);
+      icon.classList.add(darkIconClass);
     }
-});
-
-// Mobile menu toggle
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
+  });
 });
