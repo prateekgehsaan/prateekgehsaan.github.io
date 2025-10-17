@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Welcome - Prateek Gupta</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub Pages Welcome</title>
+  <link 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header>
-        <h1>Prateek Gupta</h1>
-        <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav id="navMenu">
-            <a href="portfolio/"><i class="fas fa-briefcase"></i> Portfolio </a>
-            <a href="dashboard/"><i class="fas fa-tachometer-alt"></i> Dashboard </a>
-            <a href="about/"><i class="fas fa-user"></i> About </a>
-            <a href="mailto:prateekgehsaangmail.com"><i class="fas fa-envelope"></i> Mail </a>
-            <button class="toggle-btn" id="darkModeBtn" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
-        </nav>
-    </header>
+  <header>
+    <div class="branding">Your Name</div>
 
-    <main>
-        <h2>Welcome to my space!</h2>
-        <p>Explore my professional portfolio, dashboard, personal background, and feel free to contact me directly. Navigate through the sections above.</p>
-    </main>
+    <nav>
+      <a href="/portfolio/" aria-label="Portfolio"><i class="fas fa-briefcase"></i> Portfolio</a>
+      <a href="/dashboard/" aria-label="Dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="/about/" aria-label="About"><i class="fas fa-user"></i> About</a>
+      <a href="mailto:your.email@example.com" aria-label="Mail"><i class="fas fa-envelope"></i> Mail</a>
+    </nav>
 
-    <script src="script.js"></script>
+    <button id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
+
+  <main>
+    <section class="welcome">
+      <h1>Welcome to My GitHub Pages</h1>
+      <p>Your dashboard for Portfolio, Projects, and More.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
