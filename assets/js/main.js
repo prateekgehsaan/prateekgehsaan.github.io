@@ -25,54 +25,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* -------------------------
-     Mobile nav toggle (off-canvas)
-     Uses: .mobile-nav-toggle elements, toggles body class 'main-nav-active'
+     Mobile nav toggle (customized for .main-nav)
   ------------------------- */
   const mobileNavShow = qs('.mobile-nav-show');
   const mobileNavHide = qs('.mobile-nav-hide');
+  const mainNav = qs('.main-nav');
 
-  const mobileNavToggle = () => {
-    document.body.classList.toggle('main-nav-active');         // renamed class
-    // toggle icons
-    if (mobileNavShow) mobileNavShow.classList.toggle('d-none');
-    if (mobileNavHide) mobileNavHide.classList.toggle('d-none');
-    // prevent background scroll when nav open
-    if (document.body.classList.contains('main-nav-active')) {
-      document.documentElement.style.overflow = 'hidden';
-    } else {
-      document.documentElement.style.overflow = '';
-    }
+  const toggleMobileNav = () => {
+    if (!mainNav) return;
+    mainNav.classList.toggle('active'); // CSS-controlled sidebar
+    mobileNavShow?.classList.toggle('d-none');
+    mobileNavHide?.classList.toggle('d-none');
+
+    // prevent background scroll when open
+    document.documentElement.style.overflow =
+      mainNav.classList.contains('active') ? 'hidden' : '';
   };
 
   qsa('.mobile-nav-toggle').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      mobileNavToggle();
+      toggleMobileNav();
     });
   });
 
-  // Close mobile nav when clicking a same-page/hash link
+  // Close nav on same-page link click
   qsa('#main-nav a').forEach(link => {
     if (!link.hash) return;
     const section = document.querySelector(link.hash);
     if (!section) return;
     link.addEventListener('click', () => {
-      if (document.body.classList.contains('main-nav-active')) mobileNavToggle();
+      if (mainNav.classList.contains('active')) toggleMobileNav();
     });
   });
 
-  /* -------------------------
-     Mobile nav dropdowns
-     Adapted to `.main-nav .dropdown > a`
-  ------------------------- */
+  // Dropdown handling inside mobile nav
   qsa('.main-nav .dropdown > a').forEach(el => {
     el.addEventListener('click', function (event) {
-      if (document.body.classList.contains('main-nav-active')) {
+      if (mainNav.classList.contains('active')) {
         event.preventDefault();
         this.classList.toggle('active');
         const sibling = this.nextElementSibling;
         if (sibling) sibling.classList.toggle('dropdown-active');
-
         const indicator = this.querySelector('.dropdown-indicator');
         if (indicator) {
           indicator.classList.toggle('bi-chevron-up');
