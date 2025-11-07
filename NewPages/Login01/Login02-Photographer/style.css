@@ -1,0 +1,212 @@
+/* Reset and base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background: #121212;
+  color: #e0dede;
+  overflow-x: hidden;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1465146344425-f00d5f7f69e7?auto=format&fit=crop&w=1471&q=80') no-repeat center/cover;
+  filter: blur(15px) brightness(0.55);
+  z-index: -2;
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent, #121212 85%);
+  z-index: -1;
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 1s ease forwards;
+}
+
+.login-form {
+  background: rgba(30, 30, 30, 0.65);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+  padding: 2.5rem 3rem;
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  color: #fafafa;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: gold;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.06em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  position: relative;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f0e9e9;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1.5px solid transparent;
+  background: rgba(255 255 255 / 0.1);
+  color: #fafafa;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  background: rgba(255 255 255 / 0.22);
+  border-color: gold;
+  box-shadow: 0 0 8px gold;
+}
+
+.error-msg {
+  font-size: 0.8rem;
+  color: #e74c3c;
+  margin-top: 0.15rem;
+  min-height: 1em;
+  visibility: hidden;
+}
+
+input.invalid + .error-msg {
+  visibility: visible;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ddd;
+  font-size: 0.9rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checkbox-label input {
+  margin-right: 0.4rem;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px #ccc;
+  transition: background-color 0.25s ease;
+}
+
+.checkbox-label input:checked {
+  background-color: gold;
+  box-shadow: none;
+}
+
+.forgot-link {
+  color: gold;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.forgot-link:hover {
+  color: #fff;
+}
+
+.btn-login {
+  margin-top: 1.2rem;
+  padding: 14px 0;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(90deg, #bfa181, #fffaf0);
+  color: #121212;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(191, 161, 129, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+  background: linear-gradient(90deg, #fffaf0, #bfa181);
+  box-shadow: 0 0 22px gold;
+}
+
+.signup-text {
+  margin: 1rem 0 0 0;
+  text-align: center;
+  color: #bfa181cc;
+  font-weight: 600;
+}
+
+.signup-text a {
+  color: gold;
+  text-decoration: none;
+  font-weight: 800;
+  transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+  color: #fff;
+}
+
+.footer-text {
+  color: rgba(191, 161, 129, 0.6);
+  font-size: 0.8rem;
+  margin-top: 1.8rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 2rem 1.6rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}

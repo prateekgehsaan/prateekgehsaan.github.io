@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Modern Professional UI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    body, html {
+      margin: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      color: #212121;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 100%;
+      padding: 32px 28px 40px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Title */
+    h2 {
+      font-weight: 700;
+      font-size: 1.9rem;
+      margin: 0 0 8px;
+      text-align: center;
+      color: #111827;
+    }
+
+    p.subtitle {
+      font-weight: 400;
+      font-size: 1rem;
+      text-align: center;
+      color: #6b7280; /* cool gray */
+      margin: 0 0 24px;
+    }
+
+    /* SSO Buttons container */
+    .sso-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Single SSO button */
+    .sso-button {
+      flex: 1 1 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: white;
+      font-weight: 600;
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: filter 0.25s ease, transform 0.15s ease;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.12);
+      border: none;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .sso-button:hover,
+    .sso-button:focus {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow: 0 7px 14px rgb(0 0 0 / 0.18);
+    }
+
+    /* Brand colors and icons */
+    .sso-google {
+      background-color: #4285f4;
+    }
+    .sso-google svg path {
+      fill: white;
+    }
+
+    .sso-facebook {
+      background-color: #1877f2;
+    }
+    .sso-facebook svg path {
+      fill: white;
+    }
+
+    .sso-linkedin {
+      background-color: #0a66c2;
+    }
+    .sso-linkedin svg path {
+      fill: white;
+    }
+
+    /* Form */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    input[type="email"], input[type="password"] {
+      padding: 13px 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      color: #222;
+      outline-offset: 3px;
+    }
+
+    input[type="email"]:focus, input[type="password"]:focus {
+      border-color: #4f46e5; /* Indigo */
+      box-shadow: 0 0 8px #c7d2fe;
+      outline: none;
+    }
+
+    .error-message {
+      color: #ef4444; /* red-500 */
+      font-size: 0.85rem;
+      min-height: 18px;
+      margin-top: -12px;
+      margin-bottom: 8px;
+      display: none;
+    }
+    .error-message.active {
+      display: block;
+    }
+
+    /* Remember me and forgot password */
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      color: #4b5563; /* gray-600 */
+    }
+
+    .form-footer label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .form-footer input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      accent-color: #4f46e5; /* Indigo */
+      border-radius: 6px;
+      border: 1.5px solid #d1d5db;
+    }
+
+    .form-footer a {
+      color: #4f46e5;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 600;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .form-footer a:hover,
+    .form-footer a:focus {
+      color: #4338ca; /* Slightly darker indigo */
+      outline: none;
+      text-decoration: underline;
+    }
+
+    /* Submit button */
+    button[type="submit"] {
+      background: linear-gradient(90deg, #4f46e5, #6366f1);
+      border: none;
+      border-radius: 14px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 14px 0;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(99,102,241,0.4);
+      transition: background 0.3s ease, transform 0.15s ease;
+    }
+
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background: linear-gradient(90deg, #4338ca, #818cf8);
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow: 0 8px 18px rgba(99,102,241,0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .container {
+        max-width: 100%;
+        padding: 24px;
+      }
+      
+      .sso-buttons {
+        flex-direction: column;
+      }
+      
+      .sso-button {
+        flex: 1 1 auto;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="container" role="main" aria-labelledby="login-title">
+    <h2 id="login-title">Sign in to your account</h2>
+    <p class="subtitle">Use your email or one of your accounts below</p>
+
+    <div class="sso-buttons" aria-label="Single Sign-On options">
+      <button type="button" class="sso-button sso-google" aria-label="Sign in with Google">
+        <svg width="20" height="20" viewBox="0 0 533.5 544.3" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M533.5 278.4c0-17.3-1.6-34-4.6-50.2H272v95h147.7c-6.4 35-26 64.8-55.5 84.7v70h89.4c52.5-48.4 82.9-119.5 82.9-199.5z"/><path fill="#34A853" d="M272 544.3c74 0 136-24.5 181.3-66.7l-89.4-70c-24.7 16.5-56.3 26.3-91.9 26.3-70.6 0-130.6-47.9-152-112.5H27v70.3C70.6 491.6 165 544.3 272 544.3z"/><path fill="#FBBC05" d="M120 325.4c-10.3-30-10.3-62.1 0-92.1v-70.3H27c-36.3 70-36.3 153.3 0 223.3l93-60.9z"/><path fill="#EA4335" d="M272 108.8c39.1 0 74.5 13.5 102.3 40.2l76.7-76.7C399.9 24.5 337.9 0 272 0 165 0 70.6 52.7 27 136.8l93 70.3c21.4-64.6 81.4-112.5 152-112.5z"/></svg>
+        Google
+      </button>
+      <button type="button" class="sso-button sso-facebook" aria-label="Sign in with Facebook">
+        <svg width="20" height="20" viewBox="0 0 96.1 96.1" aria-hidden="true" focusable="false"><path d="M72.1 0H24C10.7 0 0 10.7 0 24v48.1c0 13.3 10.7 24 24 24h24.9V58.9h-8.3v-10h8.3v-7.4c0-8.2 5-12.7 12.5-12.7 3.6 0 6.7.3 7.6.4v8.8l-5.2.002c-4.1 0-4.9 2-4.9 4.9v6.4h9.8l-1.2 10h-8.6v37.3H72c13.3 0 24-10.7 24-24V24c.1-13.3-10.6-24-23.9-24z" fill="white"/></svg>
+        Facebook
+      </button>
+      <button type="button" class="sso-button sso-linkedin" aria-label="Sign in with LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 34 34" aria-hidden="true" focusable="false"><path d="M34,20.7v11.2h-6.7V21c0-2.3-0.8-3.8-2.7-3.8c-1.5,0-2.4,1-2.8,2v11.7h-6.7c0,0,0.1-19,0-20.9h6.7v3c0,0.2,0,0.5,0.1,0.7 c0.9-1.3,2.6-3.2,6.3-3.2C31.2,12.7,34,15.5,34,20.7z M5.8,3.1c-2.2,0-3.6,1.5-3.6,3.5c0,2,1.3,3.5,3.5,3.5h0c2.3,0,3.6-1.5,3.6-3.5 C9.4,4.6,8,3.1,5.8,3.1z M9.2,31.9H2.4V11H9.2V31.9z M32.5,0H1.5C0.7,0,0,0.7,0,1.5v31.1C0,33.4,0.7,34,1.5,34h31.1 c0.8,0,1.4-0.6,1.4-1.4V1.5C33.9,0.7,33.3,0,32.5,0z" fill="white"/></svg>
+        LinkedIn
+      </button>
+    </div>
+
+    <form id="login-form" autocomplete="off" novalidate aria-label="Login form">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required aria-describedby="email-error" />
+      <p id="email-error" class="error-message">Please enter a valid email address.</p>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required aria-describedby="password-error" />
+      <p id="password-error" class="error-message">Password is required.</p>
+
+      <div class="form-footer">
+        <label for="remember">
+          <input type="checkbox" id="remember" name="remember" />
+          Remember me
+        </label>
+        <a href="#" tabindex="0">Forgot password?</a>
+      </div>
+
+      <button type="submit" aria-label="Sign in">Sign In</button>
+    </form>
+  </main>
+
+<script>
+  // Form validation and micro-interactions
+  const form = document.getElementById('login-form');
+  const emailInput = form.email;
+  const passwordInput = form.password;
+  const emailError = document.getElementById('email-error');
+  const passwordError = document.getElementById('password-error');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let hasError = false;
+
+    // Email validation
+    if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+      emailInput.style.borderColor = '#ef4444';
+      emailError.classList.add('active');
+      hasError = true;
+    } else {
+      emailInput.style.borderColor = '';
+      emailError.classList.remove('active');
+    }
+
+    // Password validation
+    if (!passwordInput.value.trim()) {
+      passwordInput.style.borderColor = '#ef4444';
+      passwordError.classList.add('active');
+      hasError = true;
+    } else {
+      passwordInput.style.borderColor = '';
+      passwordError.classList.remove('active');
+    }
+
+    if (!hasError) {
+      // Simulate login success for demo
+      alert('Login successful!');
+      form.reset();
+    }
+  });
+
+  // Remove error styling on input
+  [emailInput, passwordInput].forEach(input=>{
+    input.addEventListener('input', () => {
+      if(input.style.borderColor === 'rgb(239, 68, 68)' && input.value.trim()) {
+        input.style.borderColor = '';
+        if(input === emailInput) emailError.classList.remove('active');
+        else passwordError.classList.remove('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome Login</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #d9e8ff);
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 18px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.07);
+      display: flex;
+      overflow: hidden;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 0;
+    }
+
+    /* Illustration container */
+    .illustration {
+      flex: 1 1 40%;
+      background: linear-gradient(135deg, #a0c4ff, #caf0f8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 30px;
+      min-height: 320px;
+      border-top-left-radius: 18px;
+      border-bottom-left-radius: 18px;
+      overflow: hidden;
+    }
+
+    .illustration img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      user-select: none;
+    }
+
+    /* Form container */
+    .login-form {
+      flex: 1 1 60%;
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+      border-top-right-radius: 18px;
+      border-bottom-right-radius: 18px;
+      background: #fff;
+    }
+
+    .login-form h2 {
+      font-weight: 600;
+      font-size: 2rem;
+      margin: 0 0 20px;
+      color: #334e68;
+    }
+
+    label {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #334e68;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.8px solid #bcccdc;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      color: #334e68;
+      outline-offset: 2px;
+    }
+
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      border-color: #82c0ff;
+      box-shadow: 0 0 6px rgba(130,192,255,0.5);
+      outline: none;
+      background: #f6fbff;
+    }
+
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 15px 0 8px;
+      font-size: 0.95rem;
+      color: #334e68;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 1.6px solid #bcccdc;
+      cursor: pointer;
+      accent-color: #82c0ff;
+      transition: accent-color 0.3s ease;
+    }
+
+    .checkbox-container input[type="checkbox"]:hover {
+      accent-color: #4a90e2;
+    }
+
+    .forgot-link {
+      font-size: 0.95rem;
+      color: #4a90e2;
+      text-decoration: none;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-link:hover,
+    .forgot-link:focus {
+      color: #1a5dbb;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    button[type="submit"] {
+      margin-top: 16px;
+      padding: 14px 0;
+      background: linear-gradient(90deg, #4a90e2, #82c0ff);
+      border: none;
+      border-radius: 14px;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(130,192,255,0.4);
+      transition: background 0.3s ease, transform 0.15s ease;
+    }
+
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background: linear-gradient(90deg, #3a78c2, #5b9ddb);
+      transform: translateY(-2px);
+      outline: none;
+      box-shadow: 0 8px 16px rgba(90,160,255,0.6);
+    }
+
+    .signup-text {
+      margin: 18px 0 0;
+      font-size: 0.95rem;
+      text-align: center;
+      color: #627d98;
+    }
+
+    .signup-text a {
+      color: #4a90e2;
+      font-weight: 600;
+      text-decoration: none;
+      user-select: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .signup-text a:hover,
+    .signup-text a:focus {
+      color: #1a5dbb;
+      outline: none;
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 720px) {
+      .container {
+        max-width: 100%;
+        flex-direction: column;
+        border-radius: 18px;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+      }
+
+      .illustration {
+        flex: 1 1 auto;
+        border-radius: 18px 18px 0 0;
+        padding: 30px 16px 10px;
+        min-height: 280px;
+      }
+
+      .login-form {
+        flex: 1 1 auto;
+        border-radius: 0 0 18px 18px;
+        padding: 30px 24px 40px;
+      }
+    }
+
+    /* Accessibility focus outline override */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 3px solid #82c0ff;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="User login form with illustration">
+    <section class="illustration" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Person working on laptop in cozy environment" />
+    </section>
+    <form class="login-form" novalidate aria-describedby="form-desc">
+      <h2 id="form-desc">Login to your account</h2>
+
+      <label for="email">Email or Username</label>
+      <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="username" required />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required />
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="remember" name="remember" />
+        <label for="remember">Remember Me</label>
+      </div>
+
+      <a href="#" class="forgot-link" tabindex="0">Forgot Password?</a>
+
+      <button type="submit" aria-label="Log in to your account">Login</button>
+
+      <p class="signup-text">
+        New here? <a href="#" tabindex="0">Sign Up</a>
+      </p>
+    </form>
+  </div>
+
+  <script>
+    // Basic client-side validation with friendly UX
+    document.querySelector('.login-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const email = e.target.email;
+      const password = e.target.password;
+      let valid = true;
+
+      // Simple validations
+      if (!email.value.trim()) {
+        email.style.borderColor = '#e74c3c';
+        email.focus();
+        valid = false;
+      } else {
+        email.style.borderColor = '';
+      }
+
+      if (!password.value.trim()) {
+        password.style.borderColor = '#e74c3c';
+        if (valid) password.focus();
+        valid = false;
+      } else {
+        password.style.borderColor = '';
+      }
+
+      if (valid) {
+        alert('Login successful (demo)!');
+        e.target.reset();
+      }
+    });
+  </script>
+</body>
+</html>
