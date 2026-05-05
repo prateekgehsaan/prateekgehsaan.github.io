@@ -1,0 +1,73 @@
+{
+  "profile": {
+    "name": "Prateek Gupta",
+    "title": "Software Developer",
+    "location": "India",
+    "bio": "I build scalable web applications and developer tools. Focused on creating clean, JSON-driven UI/UX experiences.",
+    "email": "prateek.gupta@example.com",
+    "mobile": "+91 98765 43210",
+    "resumeUrl": "#",
+    "image": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:aaa0d974-4f20-4e1f-be69-d86fbdfe8444/320911c1-633b-4530-8bbe-e747b32b7754/128"
+  },
+  "socials": {
+    "github": "https://github.com/",
+    "linkedin": "https://linkedin.com/in/"
+  },
+  "skills": [
+    { "name": "React", "category": "Frontend" },
+    { "name": "Vite", "category": "Tools" },
+    { "name": "Tailwind CSS", "category": "Frontend" },
+    { "name": "Material UI", "category": "Frontend" }
+  ],
+  "experience": [{
+    "role": "Senior Software Engineer",
+    "company": "Global Clone Platform",
+    "duration": "Jun 2020 - Present",
+    "description": "Led backend team...",
+    "responsibilities": ["Responsibility 1", "Responsibility 2"],
+    "techStack": ["Node.js", "Docker", "Kubernetes"]
+  },
+{
+    "role": "Senior Software Engineer",
+    "company": "Global Clone Platform",
+    "duration": "Jun 2020 - Present",
+    "description": "Led backend team...",
+    "responsibilities": ["Responsibility 1", "Responsibility 2"],
+    "techStack": ["Node.js", "Docker", "Kubernetes"]
+  },
+  {
+    "role": "Senior Software Engineer",
+    "company": "Global Clone Platform",
+    "duration": "Jun 2020 - Present",
+    "description": "Led backend team...",
+    "responsibilities": ["Responsibility 1", "Responsibility 2"],
+    "techStack": ["Node.js", "Docker", "Kubernetes"]
+  }
+],
+  "projects": [
+    {
+      "title": "Realtime Chat Platform",
+      "description": "A secure, scalable real-time chat solution supporting private messaging, group items, and encrypted file sharing.",
+      "tech": ["React", "Socket.io", "Node.js", "Redis"],
+      "link": "#"
+    },
+    {
+      "title": "Enterprise Analytics Dashboard",
+      "description": "A comprehensive data visualization suite with real-time charting, customizable alerts, and multi-tenant support.",
+      "tech": ["React", "D3.js", "GraphQL", "PostgreSQL"],
+      "link": "#"
+    },
+    {
+      "title": "Cloud Infrastructure Monitor",
+      "description": "An automated monitoring tool for Kubernetes clusters providing health scores and cost optimization suggestions.",
+      "tech": ["Go", "Kubernetes", "Prometheus", "Grafana"],
+      "link": "#"
+    },
+    {
+      "title": "Cloud Infrastructure Monitor",
+      "description": "An automated monitoring tool for Kubernetes clusters providing health scores and cost optimization suggestions.",
+      "tech": ["Go", "Kubernetes", "Prometheus", "Grafana"],
+      "link": "#"
+    }
+  ]
+}
