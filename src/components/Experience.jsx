@@ -83,7 +83,7 @@ const Experience = () => {
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                     <MapPin size={16} color="#565D6D" />
                     <Typography sx={{ fontSize: 13, fontWeight: 600, color: '#565D6D', textTransform: 'uppercase' }}>
-                      Remote
+                      {exp.location}
                     </Typography>
                   </Box>
                 </Box>
@@ -93,13 +93,33 @@ const Experience = () => {
             {/* Drop Panel Content */}
             <AccordionDetails sx={{ px: { xs: 3, md: 5 }, pb: 4, pt: 0 }}>
               <Box sx={{ borderTop: '1px solid #E5E7EB', pt: 3, mt: 1 }}>
+                {exp.description && (
                 <Typography sx={{ fontSize: 16, color: '#4B5563', lineHeight: 1.7, mb: 4, fontStyle: 'italic' }}>
                   {exp.description}
                 </Typography>
+                )}
+
+                {/* Grouped highlights */}
+                {exp.groups?.map((group, gIdx) => (
+                  <Box key={gIdx} sx={{ mb: 4 }}>
+                    <Typography sx={{ fontSize: 15, fontWeight: 800, color: '#573CDD', mb: 2, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                      {group.title}
+                    </Typography>
+                    {group.points.map((item, idx) => (
+                      <Box key={idx} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 2 }}>
+                        <Box sx={{ minWidth: 28, height: 28, bgcolor: '#573CDD1A', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <Typography sx={{ fontSize: 14, fontWeight: 800, color: '#573CDD' }}>{idx + 1}</Typography>
+                        </Box>
+                        <Typography sx={{ fontSize: 16, color: '#374151', lineHeight: 1.6 }}>{item}</Typography>
+                      </Box>
+                    ))}
+                  </Box>
+                ))}
 
                 {/* Responsibilities List */}
+                {exp.responsibilities?.length > 0 && (
                 <Box sx={{ mb: 4 }}>
-                  {exp.responsibilities?.map((item, idx) => (
+                  {exp.responsibilities.map((item, idx) => (
                     <Box key={idx} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2, mb: 2 }}>
                       <Box sx={{ 
                         minWidth: 28, 
@@ -120,6 +140,7 @@ const Experience = () => {
                     </Box>
                   ))}
                 </Box>
+                )}
 
                 {/* Tech Stack Chips */}
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>

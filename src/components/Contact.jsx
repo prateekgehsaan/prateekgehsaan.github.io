@@ -5,6 +5,7 @@ import {
 } from '@mui/material';
 import { Phone, MessageSquare, Send, ChevronRight } from 'lucide-react';
 import SectionHeader from './SectionHeader';
+import profileData from '../data/profile.json';
 
 /* Icons (same as yours) */
 const MailIcon = () => (
@@ -33,10 +34,11 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTimeout(() => {
-      setSubmitted(true);
-      setFormData({ fullName: '', email: '', subject: '', message: '' });
-    }, 1200);
+    const subject = encodeURIComponent(formData.subject || `Portfolio enquiry from ${formData.fullName}`);
+    const body = encodeURIComponent(`${formData.message}\n\nFrom: ${formData.fullName} (${formData.email})`);
+    window.location.href = `mailto:${profileData.profile.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+    setFormData({ fullName: '', email: '', subject: '', message: '' });
   };
 
   return (
@@ -79,8 +81,8 @@ const Contact = () => {
                             <Typography className="text-sm font-semibold text-slate-500 uppercase">
                               Email
                             </Typography>
-                            <Typography className="text-lg font-bold text-slate-900">
-                              hi@prateekgupta.dev
+                            <Typography component="a" href={`mailto:${profileData.profile.email}`} className="text-lg font-bold text-slate-900" sx={{ textDecoration: 'none', wordBreak: 'break-all' }}>
+                              {profileData.profile.email}
                             </Typography>
                           </Box>
                         </Box>
@@ -103,8 +105,8 @@ const Contact = () => {
                             <Typography className="text-sm font-semibold text-slate-500 uppercase">
                               Call Me
                             </Typography>
-                            <Typography className="text-lg font-bold text-slate-900">
-                              +91 98765 43210
+                            <Typography component="a" href={`tel:${profileData.profile.mobile.replace(/\s/g, '')}`} className="text-lg font-bold text-slate-900" sx={{ textDecoration: 'none' }}>
+                              {profileData.profile.mobile}
                             </Typography>
                           </Box>
                         </Box>
@@ -209,7 +211,7 @@ const Contact = () => {
                       }}
                     >
                       <Send size={18} style={{ marginRight: 8 }} />
-                      {submitted ? 'Sent Successfully' : 'Send Message'}
+                      {submitted ? 'Opening your email app...' : 'Send Message'}
                     </Button>
 
                   </Box>

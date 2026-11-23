@@ -56,32 +56,24 @@ const About = () => {
               mb: 4
             }}
           >
-            A brief introduction to my professional journey and philosophy.
+            A brief introduction to my professional journey and expertise.
           </Typography>
 
           {/* Main Content */}
-          <Typography
-            sx={{
-              fontSize: { xs: 18, md: 20 },
-              lineHeight: 1.65,
-              color: '#565D6D',
-              mb: 6,
-              maxWidth: 800
-            }}
-          >
-            I am a dedicated Full-stack engineer specializing in building scalable web applications. I focus on shipping clean, maintainable code with mentoring.
-          </Typography>
-
-          <Typography
-            sx={{
-              fontSize: 16,
-              lineHeight: 1.5,
-              color: '#565D6D',
-              maxWidth: 800
-            }}
-          >
-            I believe that great software is built on the foundation of collaboration, empathy for end-users, and understanding of business needs.
-          </Typography>
+          {(profile.about || []).map((para, i) => (
+            <Typography
+              key={i}
+              sx={{
+                fontSize: i === 0 ? { xs: 18, md: 20 } : 16,
+                lineHeight: i === 0 ? 1.65 : 1.6,
+                color: '#565D6D',
+                mb: 3,
+                maxWidth: 800
+              }}
+            >
+              {para}
+            </Typography>
+          ))}
         </Box>
 
         {/* Right Cards */}
@@ -127,7 +119,7 @@ const About = () => {
                   EXPERIENCE
                 </Typography>
                 <Typography sx={{ fontSize: 16, fontWeight: 600 }}>
-                  {profile.experience}+ Years
+                  {profile.experienceLabel}
                 </Typography>
               </Box>
             </Box>
@@ -171,7 +163,7 @@ const About = () => {
                 color: 'rgba(25, 25, 31, 0.9)'
               }}
             >
-              I'm currently interested in remote roles or consultant projects in the FinTech or Healthcare sectors.
+              {profile.collaboration}
             </Typography>
           </Paper>
         </Box>

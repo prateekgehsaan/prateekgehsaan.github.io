@@ -19,6 +19,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import profileData from '../data/profile.json';
+import resumeFile from '../assets/Prateek_Gupta_Resume.pdf';
 
 // Diamond SVG Icon Component - exact recreation of CSS design
 const DiamondIcon = () => (
@@ -52,7 +53,8 @@ const Navbar = () => {
         <Button
           fullWidth
           variant="contained"
-          href={profileData.profile.resumeUrl}
+          href={resumeFile}
+          download="Prateek_Gupta_Resume.pdf"
           sx={{ mt: 1 }}
         >
           Resume
@@ -132,7 +134,8 @@ const Navbar = () => {
             <Button
               variant="contained"
               component="a"
-              href={profileData.profile.resumeUrl}
+              href={resumeFile}
+          download="Prateek_Gupta_Resume.pdf"
               sx={{
                 background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
                 textTransform: 'none',

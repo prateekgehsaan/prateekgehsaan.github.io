@@ -9,6 +9,7 @@ import {
   useMediaQuery
 } from '@mui/material';
 import profileData from '../data/profile.json';
+import profileImage from '../assets/Prateek_Gupta_Image.jpg';
 
 const Hero = () => {
   const { profile } = profileData;
@@ -210,8 +211,7 @@ const Hero = () => {
         {/* Avatar */}
         <Avatar
           src={
-            profile.image ||
-            'https://via.placeholder.com/400x400/FFE0DF/FFFFFF?text=PG'
+            profileImage
           }
           alt={profile.name}
           sx={{

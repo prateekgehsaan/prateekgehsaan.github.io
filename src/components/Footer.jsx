@@ -43,6 +43,8 @@ const Footer = () => {
             <a href="#about" className="text-xs font-bold text-slate-400 hover:text-blue-600 uppercase tracking-tighter transition-colors">About</a>
             <a href="#projects" className="text-xs font-bold text-slate-400 hover:text-blue-600 uppercase tracking-tighter transition-colors">Projects</a>
             <a href="#contact" className="text-xs font-bold text-slate-400 hover:text-blue-600 uppercase tracking-tighter transition-colors">Contact</a>
+            <a href={profileData.socials.github} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-400 hover:text-blue-600 uppercase tracking-tighter transition-colors">GitHub</a>
+            <a href={profileData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-slate-400 hover:text-blue-600 uppercase tracking-tighter transition-colors">LinkedIn</a>
           </Box>
         </Box>
       </Container>

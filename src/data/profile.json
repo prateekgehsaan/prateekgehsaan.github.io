@@ -1,73 +1,306 @@
 {
   "profile": {
     "name": "Prateek Gupta",
-    "title": "Software Developer",
-    "location": "India",
-    "bio": "I build scalable web applications and developer tools. Focused on creating clean, JSON-driven UI/UX experiences.",
-    "email": "prateek.gupta@example.com",
-    "mobile": "+91 98765 43210",
-    "resumeUrl": "#",
-    "image": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:aaa0d974-4f20-4e1f-be69-d86fbdfe8444/320911c1-633b-4530-8bbe-e747b32b7754/128"
+    "title": "Java Full Stack Developer · AI-Assisted Engineering",
+    "location": "Nagpur, Maharashtra, India",
+    "bio": "I build and optimize enterprise web applications for banking and government clients with Java, Spring, React and Python/Django, and I ship faster with a Claude-driven, spec-first development workflow.",
+    "email": "prateekehsaan@gmail.com",
+    "mobile": "+91 7987510147",
+    "experienceLabel": "3 Years",
+    "about": [
+      "I'm a Java Full Stack Developer with 3 years of software experience: 2.5+ years at Virtual Galaxy Infotech plus a 6-month full-stack Java internship. I build, optimize and deploy enterprise web applications for banking and government clients using Java, Spring MVC/Spring Boot, JSP, React, Python/Django, Oracle and PostgreSQL.",
+      "My edge is AI-native engineering. I architected a Claude-driven development workflow with spec- and plan-driven builds, reviewed AI proposals and staged releases, and I use AI-assisted profiling to re-engineer slow SQL and stored procedures without changing business logic.",
+      "I care about speed, security and maintainability. I own live production deployments for multiple HelpDesk CRM client instances and turn performance bottlenecks into measurable wins."
+    ],
+    "collaboration": "Open to remote full-stack, Java/Spring, Python/Django and AI-first engineering roles, as well as freelance and project-based work."
   },
   "socials": {
-    "github": "https://github.com/",
-    "linkedin": "https://linkedin.com/in/"
+    "github": "https://github.com/prateekgehsaan",
+    "linkedin": "https://linkedin.com/in/prateek-gupta-prateekgehsaan"
   },
-  "skills": [
-    { "name": "React", "category": "Frontend" },
-    { "name": "Vite", "category": "Tools" },
-    { "name": "Tailwind CSS", "category": "Frontend" },
-    { "name": "Material UI", "category": "Frontend" }
+  "experience": [
+    {
+      "role": "Software Developer",
+      "company": "Virtual Galaxy Infotech Pvt. Ltd.",
+      "duration": "May 2024 - Present",
+      "location": "Nagpur, MH (Onsite)",
+      "description": "Enterprise web applications for banking and government clients, from AI-assisted platform builds to performance engineering and production releases.",
+      "groups": [
+        {
+          "title": "AI-Assisted Engineering | APMC Platform",
+          "points": [
+            "Architected a Claude-driven development workflow integrated with the project repository and GitHub branch-based version control, enforcing a single approved architecture across all AI-generated modules and preventing scope drift.",
+            "Directed delivery through requirement and design specifications maintained in Markdown, reviewing and approving or rejecting AI proposals at each stage; completed security, traffic-handling and performance reviews before release.",
+            "Established a staged release process: module-level testing after every development cycle, Docker-based validation, merge to main and UAT deployment; ran scoped automated build sessions against finalized plans to shorten delivery timelines.",
+            "Built a high-performance, animated UI with GSAP motion transitions, balancing visual polish against load performance."
+          ]
+        },
+        {
+          "title": "HelpDesk CRM | Multi-Client Ticketing Platform",
+          "points": [
+            "Led platform-wide performance optimization through code review and refactoring: cut page load times by up to 75% (20s to 5s; 10s to 1-4s), improved maintainability by 75% and added server-side caching for static responses.",
+            "Eliminated repeated database round trips by moving bulk submissions to array-based stored-procedure inputs, reducing submission time from 2-3s to 50-200ms.",
+            "Drove AI-assisted SQL optimization: profiled the slowest stored procedures and dependent queries with Claude, re-engineered them while preserving business logic, and validated on live and local databases, making chart and dashboard workloads 5-6x faster.",
+            "Engineered an internal Procedure Performance Monitoring portal that records execution time, errors, input parameters and affected users per stored procedure, enabling root-cause analysis and proactive bottleneck detection.",
+            "Enabled GZIP compression at the WildFly (Undertow) server level and redesigned the UI as mobile-responsive with user-selectable color themes and motion transitions.",
+            "Delivered HighCharts analytics dashboards (status-wise, weekly, monthly, yearly), Tour & Travel and UAT modules, and an AI-powered circular summarization feature.",
+            "Adapted one product into multiple client-specific configurations, including a public-facing complaint registration portal, delivering on schedule for banking and government clients."
+          ]
+        },
+        {
+          "title": "Production Deployment & Release Management",
+          "points": [
+            "Own end-to-end production deployment across all HelpDesk CRM environments on WildFly: server and datasource configuration, client mail-server integration and environment troubleshooting with the server and support teams.",
+            "Manage Linux server deployments from Windows using WinSCP (SFTP/SCP), resolving cross-platform compatibility issues during live rollouts."
+          ]
+        },
+        {
+          "title": "Earlier Projects",
+          "points": [
+            "Contributed to ESS, HRMS, Animal Husbandry (React, Django) and HelpDesk CRM v1; owned React UI and client-side logic on the Django-based projects.",
+            "Developed HRMS modules including payroll, employee management, leave management, training and examination systems.",
+            "Designed flow-based modules such as Tour Plan, Tour Advance, Tour Extension Requests and Tour Bill approvals with multi-level (manager and accounts) authorization.",
+            "Contributed to the Employee Productivity System (EPS) for an international client with a modular architecture."
+          ]
+        }
+      ],
+      "techStack": ["Java", "Spring MVC", "Spring Boot", "JSP", "JavaScript", "AJAX", "React.js", "Python", "Django", "Oracle", "PostgreSQL", "PL/SQL", "WildFly", "Docker", "Git", "Claude"]
+    },
+    {
+      "role": "Full-Stack Java Intern",
+      "company": "RentMart IT Services Pvt. Ltd.",
+      "duration": "Nov 2023 - Apr 2024",
+      "location": "Nagpur, MH (Onsite)",
+      "description": "Full-stack Java internship on an online course platform.",
+      "responsibilities": [
+        "Built backend and frontend features, including a dashboard and API integration, for an online course platform using Spring MVC, JSP and MySQL."
+      ],
+      "techStack": ["Java", "Spring MVC", "JSP", "MySQL"]
+    },
+    {
+      "role": "Field Executive",
+      "company": "Blue Dart Express Ltd.",
+      "duration": "Jun 2021 - Apr 2023",
+      "location": "Raigarh, CG (Onsite)",
+      "description": "Logistics operations before moving into software development.",
+      "responsibilities": [
+        "Managed logistics operations, trained new hires and resolved customer escalations with a 95% satisfaction rate."
+      ],
+      "techStack": []
+    },
+    {
+      "role": "Social Media Promotion & Advertising Intern",
+      "company": "People For Animals (NGO)",
+      "duration": "Oct 2020 - Dec 2020",
+      "location": "Remote",
+      "description": "",
+      "responsibilities": [],
+      "techStack": []
+    }
   ],
-  "experience": [{
-    "role": "Senior Software Engineer",
-    "company": "Global Clone Platform",
-    "duration": "Jun 2020 - Present",
-    "description": "Led backend team...",
-    "responsibilities": ["Responsibility 1", "Responsibility 2"],
-    "techStack": ["Node.js", "Docker", "Kubernetes"]
-  },
-{
-    "role": "Senior Software Engineer",
-    "company": "Global Clone Platform",
-    "duration": "Jun 2020 - Present",
-    "description": "Led backend team...",
-    "responsibilities": ["Responsibility 1", "Responsibility 2"],
-    "techStack": ["Node.js", "Docker", "Kubernetes"]
-  },
-  {
-    "role": "Senior Software Engineer",
-    "company": "Global Clone Platform",
-    "duration": "Jun 2020 - Present",
-    "description": "Led backend team...",
-    "responsibilities": ["Responsibility 1", "Responsibility 2"],
-    "techStack": ["Node.js", "Docker", "Kubernetes"]
-  }
-],
   "projects": [
     {
-      "title": "Realtime Chat Platform",
-      "description": "A secure, scalable real-time chat solution supporting private messaging, group items, and encrypted file sharing.",
-      "tech": ["React", "Socket.io", "Node.js", "Redis"],
-      "link": "#"
+      "title": "APMC Platform: Claude-Driven Development",
+      "category": "work",
+      "type": "AI-Assisted Enterprise Platform",
+      "description": "An enterprise platform delivered through a Claude-driven, spec- and plan-driven workflow with AI proposal reviews, staged releases and a high-performance animated UI.",
+      "modules": [
+        {
+          "name": "AI Development Workflow",
+          "points": [
+            "Claude-driven workflow integrated with the repository and GitHub branch-based version control.",
+            "A single approved architecture enforced across all AI-generated modules to prevent scope drift."
+          ]
+        },
+        {
+          "name": "Spec-Driven Delivery",
+          "points": [
+            "Requirement and design specifications maintained in Markdown.",
+            "AI proposals reviewed and approved or rejected at each stage; security, traffic-handling and performance reviews before release."
+          ]
+        },
+        {
+          "name": "Staged Releases",
+          "points": [
+            "Module-level testing after every development cycle, Docker-based validation, merge to main and UAT deployment.",
+            "Scoped automated build sessions against finalized plans to shorten delivery timelines."
+          ]
+        }
+      ],
+      "highlights": [
+        "High-performance, animated UI with GSAP motion transitions balanced against load performance."
+      ],
+      "tech": ["Claude", "GitHub", "Docker", "GSAP", "Markdown Specs"]
     },
     {
-      "title": "Enterprise Analytics Dashboard",
-      "description": "A comprehensive data visualization suite with real-time charting, customizable alerts, and multi-tenant support.",
-      "tech": ["React", "D3.js", "GraphQL", "PostgreSQL"],
-      "link": "#"
+      "title": "HelpDesk CRM: Multi-Client Ticketing Platform",
+      "category": "work",
+      "type": "Enterprise Application",
+      "description": "A workflow-driven ticketing platform for banking and government clients with role-based access, dynamic routing, analytics dashboards and client-specific configurations.",
+      "modules": [
+        {
+          "name": "Ticketing & Workflows",
+          "points": [
+            "Ticket lifecycle management, role-based access and dynamic workflow routing.",
+            "Ticket visibility and collaboration with selective user access, call forwarding with file attachments and multi-object submissions."
+          ]
+        },
+        {
+          "name": "Performance Engineering",
+          "points": [
+            "Page loads cut by up to 75% (20s to 5s; 10s to 1-4s) with server-side caching and GZIP compression on WildFly.",
+            "Bulk submissions moved to array-based stored-procedure inputs: 2-3s down to 50-200ms."
+          ]
+        },
+        {
+          "name": "Analytics & Features",
+          "points": [
+            "HighCharts dashboards (status-wise, weekly, monthly, yearly), Tour & Travel and UAT modules.",
+            "Mobile-responsive UI with user-selectable color themes and motion transitions."
+          ]
+        },
+        {
+          "name": "Client Configurations",
+          "points": [
+            "One product adapted into multiple client-specific configurations, including a public-facing complaint registration portal."
+          ]
+        }
+      ],
+      "highlights": [
+        "Own end-to-end production deployment across all client environments on WildFly.",
+        "Dashboard workloads made 5-6x faster through AI-assisted SQL optimization."
+      ],
+      "tech": ["Java", "Spring MVC", "JSP", "Oracle", "PostgreSQL", "PL/SQL", "HighCharts", "WildFly"]
     },
     {
-      "title": "Cloud Infrastructure Monitor",
-      "description": "An automated monitoring tool for Kubernetes clusters providing health scores and cost optimization suggestions.",
-      "tech": ["Go", "Kubernetes", "Prometheus", "Grafana"],
-      "link": "#"
+      "title": "AI Circular Summarization",
+      "category": "work",
+      "type": "Generative AI Feature",
+      "description": "An AI-powered feature inside HelpDesk CRM that summarizes circulars with bank-type context and custom prompts, saving summaries as document attachments.",
+      "modules": [
+        {
+          "name": "How it works",
+          "points": [
+            "Summaries generated with bank-type context and custom prompts.",
+            "Generated summaries saved back to the record as document attachments."
+          ]
+        }
+      ],
+      "highlights": [
+        "Shipped to production for banking clients as part of HelpDesk CRM."
+      ],
+      "tech": ["Generative AI", "Prompt Engineering", "Java", "Spring MVC"]
     },
     {
-      "title": "Cloud Infrastructure Monitor",
-      "description": "An automated monitoring tool for Kubernetes clusters providing health scores and cost optimization suggestions.",
-      "tech": ["Go", "Kubernetes", "Prometheus", "Grafana"],
-      "link": "#"
+      "title": "Procedure Performance Monitoring Portal",
+      "category": "work",
+      "type": "Internal Engineering Tool",
+      "description": "An internal portal that tracks every stored procedure call (execution time, errors, input parameters and affected users) to find and fix bottlenecks before users notice.",
+      "modules": [
+        {
+          "name": "Monitoring",
+          "points": [
+            "Records execution time, errors, input parameters and affected users per stored procedure.",
+            "Enables front-end root-cause analysis and proactive bottleneck detection."
+          ]
+        }
+      ],
+      "highlights": [
+        "Feeds the AI-assisted SQL optimization work that made dashboards 5-6x faster."
+      ],
+      "tech": ["Java", "Spring MVC", "Oracle", "PostgreSQL", "PL/SQL"]
+    },
+    {
+      "title": "Human Resource Management System (HRMS)",
+      "category": "work",
+      "type": "Enterprise Application",
+      "description": "A comprehensive HRMS platform managing the employee lifecycle, payroll, training and organizational workflows.",
+      "modules": [
+        {
+          "name": "Core HR & Payroll",
+          "points": [
+            "Developed employee management, payroll processing and leave tracking.",
+            "Implemented backend logic using Spring MVC and PL/SQL procedures."
+          ]
+        },
+        {
+          "name": "Training & Examination",
+          "points": [
+            "Designed training schedule, subject and topic management.",
+            "Built an examination system with assignment and evaluation workflows."
+          ]
+        },
+        {
+          "name": "Interview Management",
+          "points": [
+            "Independently developed interview tracking and management features covering candidate flow, evaluation and process tracking."
+          ]
+        }
+      ],
+      "highlights": [
+        "Worked across HR workflows with structured data handling and approval systems.",
+        "Contributed to modernization using React.js and Django."
+      ],
+      "tech": ["Java", "Spring MVC", "JSP", "JavaScript", "Oracle", "PL/SQL", "React.js", "Python", "Django"]
+    },
+    {
+      "title": "Employee Productivity System (EPS) - International Client",
+      "category": "work",
+      "type": "Enterprise Application",
+      "description": "A scalable enterprise system for a foreign client focused on productivity tracking and workflow optimization.",
+      "modules": [],
+      "highlights": [
+        "Worked on enterprise-level requirements with a modular architecture.",
+        "Contributed to backend development and workflow handling."
+      ],
+      "tech": ["Java", "Spring MVC", "Oracle", "PL/SQL"]
+    },
+    {
+      "title": "Animal Husbandry Management System",
+      "category": "work",
+      "type": "Modern Full-Stack Application",
+      "description": "A web-based system for managing livestock operations, built on a React front end and a Django back end.",
+      "modules": [],
+      "highlights": [
+        "Owned the React UI and client-side logic on the Django-based project."
+      ],
+      "tech": ["React.js", "Python", "Django"]
+    },
+    {
+      "title": "Personal Portfolio (this site)",
+      "category": "personal",
+      "type": "React Web App",
+      "description": "A JSON-driven personal portfolio: every section renders from a single profile data file, deployed to GitHub Pages.",
+      "modules": [],
+      "highlights": [
+        "Content lives in one JSON file, so updates need no component changes.",
+        "Responsive layout built with Material UI and Tailwind CSS."
+      ],
+      "tech": ["React", "Vite", "Material UI", "Tailwind CSS", "GitHub Pages"],
+      "link": "https://github.com/prateekgehsaan/prateekgehsaan.github.io"
     }
+  ],
+  "skills": [
+    { "title": "Languages", "icon": "code", "items": ["Java", "JavaScript", "SQL", "PL/SQL", "Python", "HTML5", "CSS3"] },
+    { "title": "Frameworks & Libraries", "icon": "layout", "items": ["Spring Boot", "Spring MVC", "React.js", "Django", "Spring Security", "JPA", "JSP", "Servlets", "JSTL", "AJAX"] },
+    { "title": "AI & Automation", "icon": "sparkles", "items": ["Claude (AI-assisted development)", "Prompt Engineering", "Spec/Plan-Driven Development", "AI-Assisted Code Review", "AI-Assisted SQL Optimization", "Antigravity"] },
+    { "title": "Databases", "icon": "database", "items": ["Oracle Database", "PostgreSQL", "MySQL", "Stored Procedure Tuning", "Query Performance Analysis"] },
+    { "title": "UI & Visualization", "icon": "palette", "items": ["Bootstrap", "Tailwind CSS", "Material-UI", "GSAP", "HighCharts", "Responsive Design"] },
+    { "title": "Servers & DevOps", "icon": "server", "items": ["WildFly", "Tomcat", "Docker", "Caching Strategies", "Live Server Deployment"] },
+    { "title": "Tools", "icon": "wrench", "items": ["Git", "GitHub", "SVN", "Maven", "VS Code", "DBeaver", "PL/SQL Developer", "Postman", "JIRA"] },
+    { "title": "Practices", "icon": "check", "items": ["REST APIs / RESTful Design", "MVC Architecture", "Performance Optimization", "UAT Support", "Requirement Analysis"] }
+  ],
+  "impact": [
+    { "value": "75%", "label": "Faster page loads", "detail": "20s to 5s on HelpDesk CRM" },
+    { "value": "50-200ms", "label": "Bulk submissions", "detail": "down from 2-3s via array-based procedures" },
+    { "value": "5-6x", "label": "Faster dashboards", "detail": "AI-assisted SQL optimization" },
+    { "value": "~70%", "label": "AI-assisted code", "detail": "delivered through AI agents I direct and review" }
+  ],
+  "education": [
+    { "degree": "Bachelor of Computer Applications (BCA)", "school": "Atal Bihari Vajpayee Vishwavidyalaya, Bilaspur", "years": "2018 - 2021" },
+    { "degree": "Class XII (CGBSE), Mathematics", "school": "Lokmanya Tilak High Sec. School, Raigarh", "years": "2017" }
+  ],
+  "certifications": [
+    { "name": "Java Fullstack Development" }
   ]
 }
